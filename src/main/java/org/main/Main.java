@@ -1,5 +1,6 @@
 package org.main;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class Main {
@@ -11,8 +12,9 @@ public class Main {
         for(int i = 0;i < size;i++){
             numbers[i] = dice.nextInt(1000);
         }
+//        System.out.println(Arrays.toString(numbers));
         long startTime = System.nanoTime();
-//        NewMerge.newSort(numbers);
+//        ThreadQuickSort.quickSort(numbers);
         ThreadMergeSort.mergeSort(numbers);
         long endTime = System.nanoTime();
         System.out.println(endTime - startTime);
