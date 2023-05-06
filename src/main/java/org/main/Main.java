@@ -3,22 +3,42 @@ package org.main;
 import java.util.Arrays;
 import java.util.Random;
 
+/**
+ * Managing class. If I learned one thing from this project, it's that Java makes threads more convoluted to use for
+ * simple cases.
+ */
 public class Main {
+
+    /**
+     * Main function. Creates two arrays of 1000 elements to pass to sorting algorithms. Prints the before and after
+     * states of the arrays for testing/verification.
+     *
+     * @param args Unused argument parameter.
+     */
     public static void main(String[] args) {
-//        System.out.println("Hello world!");
-        int size = 1 << 20;
+//        Testing size
+//        int size = 1 << 25;
+        int size = 1000;
+//        I took this line straight from what you said.
         Integer[] numbers = new Integer[size];
         Random dice = new Random();
-        for(int i = 0;i < size;i++){
-            numbers[i] = dice.nextInt(1000);
+        for (int i = 0; i < size; i++) {
+            numbers[i] = dice.nextInt();
         }
-//        System.out.println(Arrays.toString(numbers));
-        long startTime = System.nanoTime();
-//        ThreadQuickSort.quickSort(numbers);
+//        Timing testing
+//        long startTime;
+//        long endTime;
+        System.out.println("Before QuickSort: \n" + Arrays.toString(numbers));
+//        startTime = System.nanoTime();
+        ThreadQuickSort.quickSort(numbers);
+//        endTime = System.nanoTime();
+        System.out.println("After QuickSort: \n" + Arrays.toString(numbers));
+        for (int i = 0; i < size; i++) {
+            numbers[i] = dice.nextInt();
+        }
+        System.out.println("Before MergeSort: \n" + Arrays.toString(numbers));
         ThreadMergeSort.mergeSort(numbers);
-        long endTime = System.nanoTime();
-        System.out.println(endTime - startTime);
-//        System.out.println(Arrays.toString(numbers));
-
+        System.out.println("After MergeSort: \n" + Arrays.toString(numbers));
+//        System.out.println(endTime - startTime);
     }
 }
