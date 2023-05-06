@@ -1,5 +1,9 @@
 package org.main;
 
+/**
+ * Parent class for QuickSort and MergeSort. Originally was going to have more common code, but some was refactored and
+ * the rest was left alone.
+ */
 public class ThreadedSort {
 
     /**
@@ -18,9 +22,5 @@ public class ThreadedSort {
             }
             input[j] = value;
         }
-    }
-
-    protected static <E extends Comparable<E>> boolean arrayCheck(E[] input){
-        return true;
     }
 }
